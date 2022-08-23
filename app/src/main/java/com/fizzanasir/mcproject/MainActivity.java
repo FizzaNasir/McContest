@@ -3,13 +3,14 @@ package com.fizzanasir.mcproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
  ArrayList<String> surahnames=new ArrayList<String>();
- ListView list;
+ ListView listview;
     public String[] englishSurahNames = {"Al-Fatihah",
             "Al-Baqara ",
             "Al-i'Imran ",
@@ -132,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0; i<114; i++){
             surahnames.add(englishSurahNames[i]);
         }
-
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, surahnames);
+        listview = findViewById(R.id.surahlist);
+        listview.setAdapter(arrayAdapter);
     }
 }
